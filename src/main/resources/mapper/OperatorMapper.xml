@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.OperatorMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.demo.domian.Operator">
+        <result column="opId" jdbcType="VARCHAR" property="opId" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="age" jdbcType="VARCHAR" property="age" />
+    </resultMap>
+
+    <select id="selectOpweator" resultType="com.example.demo.domian.Operator">
+        select * from operator where opId = #{id}
+    </select>
+
+    <select id="login" resultType="com.example.demo.domian.Operator">
+        select * from operator where name=#{name} and age=#{age}
+    </select>
+
+    <insert id="addOperator" parameterType="com.example.demo.domian.Operator">
+        INSERT into operator (opId,name,age) VALUES (#{opId},#{name},#{age})
+    </insert>
+
+    <update id="updateId" parameterType="com.example.demo.domian.Operator">
+        update operator set name=#{name},age=#{age} where opId=#{opId}
+    </update>
+
+    <delete id="delete" parameterType="com.example.demo.domian.Operator">
+        delete from operator where opId=#{opId}
+    </delete>
+</mapper>

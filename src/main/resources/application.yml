@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: mybatis-server
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo?serverTimezone=UTC
+    username: root
+    password: 123456
+  thymeleaf:
+    cache: false
+    prefix: classpath:templates/
+    suffix: .html
+    encoding: utf-8
+    mode: html5
+    servlet:
+      content-type: text/html
+  freemarker:
+    check-template-location: false
+server:
+  port: 8080
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.example.demo.domian
+
+
+
